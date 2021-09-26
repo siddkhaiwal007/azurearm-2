@@ -2,7 +2,7 @@ on: [push]
 name: Azure ARM
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     steps:
 
       # Checkout code
@@ -31,9 +31,8 @@ jobs:
         azPSVersion: "latest"
         
     - name: Create Virtual machine using Powershell script
-      shell: pwsh
-      run: |
-        .\createvm.ps1
+      run: .\createvm.ps1
+      shell: powershell
 
       # output containerName variable from template
     - run: echo ${{ steps.deploy.outputs.containerName }}
