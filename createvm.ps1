@@ -1,3 +1,4 @@
+Install-Module -Name AzureRM -AllowClobber
 New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVM" `
