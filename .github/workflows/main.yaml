@@ -29,6 +29,11 @@ jobs:
         inlineScript: |
           Get-AzStorageAccount -ResourceGroupName "${{ secrets.AZURE_RG }}"
         azPSVersion: "latest"
+        
+    - name: Create Virtual machine using Powershell script
+      shell: pwsh
+      run: |
+        .\createvm.ps1
 
       # output containerName variable from template
     - run: echo ${{ steps.deploy.outputs.containerName }}
