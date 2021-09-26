@@ -35,4 +35,4 @@ jobs:
       shell: pwsh
 
       # output containerName variable from template
-    - run: echo ${{ steps.deploy.outputs.containerName }}
+   # - run: echo ${{ steps.deploy.outputs.containerName }}
