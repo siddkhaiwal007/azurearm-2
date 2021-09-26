@@ -22,7 +22,7 @@ jobs:
         template: ./azuredeploy.json
         parameters: storageAccountType=Standard_LRS
 
-    - name: Run Azure PowerShell script
+    - name: Run Azure PowerShell  script
       uses: azure/powershell@v1
       with:
         inlineScript: |
