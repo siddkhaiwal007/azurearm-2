@@ -31,8 +31,9 @@ jobs:
         azPSVersion: "latest"
         
     - name: Create Virtual machine using Powershell script
-      run: Write-Output "Welcome to PowerShell"
-      shell: pwsh
+      run: |
+          ./createvm.ps1
+      shell: pwsh 
 
       # output containerName variable from template
    # - run: echo ${{ steps.deploy.outputs.containerName }}
