@@ -31,5 +31,5 @@ jobs:
         azPSVersion: "latest"
         
 
-      # output containerName variable from  template
+      # output containerName variable from template
     - run: echo ${{ steps.deploy.outputs.containerName }}
