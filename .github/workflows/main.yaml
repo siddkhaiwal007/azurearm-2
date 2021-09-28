@@ -7,3 +7,28 @@ jobs:
 
       # Checkout code of main branch
     - uses: actions/checkout@main
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        enable-AzPSSession: true
+
+      # Deploy ARM template
+    - name: Run ARM deploy
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: ${{ secrets.AZURE_RG }}
+        template: ./azuredeploy.json
+        parameters: storageAccountType=Standard_LRS
+
+    - name: Run Azure PowerShell  script
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          Get-AzStorageAccount -ResourceGroupName "${{ secrets.AZURE_RG }}"
+        azPSVersion: "latest"
+
+
+      # output containerName variable from template
+    - run: echo ${{ steps.deploy.outputs.containerName }}
