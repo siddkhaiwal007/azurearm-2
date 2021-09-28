@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      # Checkout code of main branch
+      # Checkout code
     - uses: actions/checkout@main
       # Log into Azure
     - uses: azure/login@v1
@@ -28,7 +28,6 @@ jobs:
         inlineScript: |
           Get-AzStorageAccount -ResourceGroupName "${{ secrets.AZURE_RG }}"
         azPSVersion: "latest"
-
 
       # output containerName variable from template
     - run: echo ${{ steps.deploy.outputs.containerName }}
