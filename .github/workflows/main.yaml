@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      # Checkout code
+      # Checkout code of main branch
     - uses: actions/checkout@main
